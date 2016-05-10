@@ -92,7 +92,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                       mimeType: "image/jpg")
     let multipartArray = ["file":multipartData]
     
-    http.request(.POST, path: "https://www.goggleapis.com/upload/drive/v2/files", parameters: multipartArray, credential: nil, responseSerializer: nil) { (response, error) in
+    http.request(.POST, path: "https://www.googleapis.com/upload/drive/v2/files", parameters: multipartArray, credential: nil, responseSerializer: JsonResponseSerializer()) { (response, error) in
       if error != nil {
         self.presentAlert("Error", message: error!.localizedDescription)
       } else {
